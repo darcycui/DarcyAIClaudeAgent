@@ -45,8 +45,9 @@ Python 语言实现的 ReAct模式 Agent
 循环这三个步骤，每一轮，大模型都会结合Thought，Action，及Observation，进行下一轮的规划思考，直到用户任务得到最终解决。从而实现AI Agent（智能代理）。
 
 3. 流程图
+
 ![Agent流程图](Agent流程图.webp)
-4. 
+
 ## 参考文章
 1. [REACT: SYNERGIZING REASONING AND ACTING IN LANGUAGE MODELS](https://arxiv.org/abs/2210.03629)
 2. [马克的技术工坊 Github](https://github.com/MarkTechStation/VideoCode)
