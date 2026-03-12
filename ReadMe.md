@@ -1,6 +1,8 @@
 
 ## 是什么
-Python 语言实现的 ReAct模式 Agent [计算器 Agent](compute_agent/compute_agent.py)
+Python 语言实现的 ReAct模式 Agent
+1. [计算器 Agent](compute_agent/compute_agent.py) 是一个简单的计算器Agent
+2. [Darcy Claude Agent](claude_agent/my_claude_agent.py) 是从0到1仿写的 Claude Agent
 
 ## 有什么能力
 1. llm_api_call、compute_agent、my_claude_agent 都支持 deepseek AI聊天 
