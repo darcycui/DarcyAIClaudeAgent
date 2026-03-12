@@ -7,11 +7,12 @@ Python 语言实现的 ReAct模式 Agent
 ## 有什么能力
 1. llm_api_call、compute_agent、my_claude_agent 都支持 deepseek AI聊天 
 2. compute_agent 拓展能力：计算乘法和除法
-3. my_claude_agent 拓展能力：
-   - 读文件
-   - 写文件
-   - 执行shell命令
-   基于React模式 + 以上能力，可以完成各种任务，比如：生成贪吃蛇有戏的 web 代码。
+3. my_claude_agent 
+   1. 拓展能力：
+      - 读文件
+      - 写文件
+      - 执行shell命令
+   2. 基于React模式 + 以上能力，可以完成各种任务，比如：生成贪吃蛇有戏的 web 代码。
 
 ## 怎么用
 ### 调用大模型api
