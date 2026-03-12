@@ -1,0 +1,17 @@
+ Volume in drive D has no label.
+ Volume Serial Number is D614-A087
+
+ Directory of D:\Projectss\AI\DarcyClaudeAgent\claude_agent
+
+2026/03/12 周四  16:41    <DIR>          .
+2026/03/12 周四  16:40    <DIR>          ..
+2026/03/12 周四  16:41                 0 dir_output.txt
+2026/03/12 周四  16:39             1,149 my_claude_agent.py
+2026/03/12 周四  16:39             7,704 react_agent.py
+2026/03/12 周四  11:28             1,979 system_prompt.py
+2026/03/12 周四  15:02    <DIR>          test
+2026/03/12 周四  10:54               628 tools.py
+2026/03/12 周四  09:58                 0 __init__.py
+2026/03/12 周四  16:39    <DIR>          __pycache__
+               6 File(s)         11,460 bytes
+               4 Dir(s)  226,417,868,800 bytes free

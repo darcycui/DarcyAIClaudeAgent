@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-gamepad"></i> Snake Game</h1>
+            <p class="subtitle">Classic arcade game built with HTML, CSS & JavaScript</p>
+        </header>
+        
+        <div class="game-area">
+            <div class="game-info">
+                <div class="score-board">
+                    <div class="score-item">
+                        <span class="score-label">Score</span>
+                        <span id="score" class="score-value">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">High Score</span>
+                        <span id="high-score" class="score-value">0</span>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button id="start-btn" class="btn btn-start">
+                        <i class="fas fa-play"></i> Start Game
+                    </button>
+                    <button id="pause-btn" class="btn btn-pause" disabled>
+                        <i class="fas fa-pause"></i> Pause
+                    </button>
+                    <button id="reset-btn" class="btn btn-reset">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+                
+                <div class="instructions">
+                    <h3><i class="fas fa-info-circle"></i> How to Play</h3>
+                    <ul>
+                        <li>Use <kbd>Arrow Keys</kbd> or <kbd>WASD</kbd> to control the snake</li>
+                        <li>Eat the red food to grow and increase your score</li>
+                        <li>Avoid hitting the walls or yourself</li>
+                        <li>Press <kbd>P</kbd> to pause/resume the game</li>
+                        <li>Press <kbd>Space</kbd> to restart the game</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="game-container">
+                <canvas id="game-canvas" width="600" height="600"></canvas>
+                <div id="game-over" class="game-over">
+                    <h2>Game Over!</h2>
+                    <p>Your score: <span id="final-score">0</span></p>
+                    <button id="restart-btn" class="btn btn-restart">
+                        <i class="fas fa-play-circle"></i> Play Again
+                    </button>
+                </div>
+                <div id="welcome" class="welcome">
+                    <h2>Ready to Play?</h2>
+                    <p>Click Start Game to begin!</p>
+                </div>
+            </div>
+            
+            <div class="speed-control">
+                <h3><i class="fas fa-tachometer-alt"></i> Game Speed</h3>
+                <div class="speed-slider">
+                    <span>Slow</span>
+                    <input type="range" id="speed-slider" min="5" max="20" value="10">
+                    <span>Fast</span>
+                </div>
+                <div class="current-speed">
+                    Current Speed: <span id="speed-value">10</span>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Snake Game &copy; 2023 | Built with HTML, CSS & JavaScript</p>
+            <p class="footer-links">
+                <a href="#"><i class="fab fa-github"></i> GitHub</a> | 
+                <a href="#"><i class="fas fa-code"></i> Source Code</a>
+            </p>
+        </footer>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
