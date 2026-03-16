@@ -11,19 +11,20 @@ def init_client():
         base_url="https://api.deepseek.com",
     )
 
-
-
-if __name__ == '__main__':
+def main():
     print(f"使用 API key: {get_api_key_deepseek()} 访问 DeepSeek 模型 api")
     client = init_client()
     response = client.chat.completions.create(
         model="deepseek-chat",
         messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": "What is DeepSeek?"},
+            {"role": "system", "content": "你是一位专业聊天助手."},
+            {"role": "user", "content": "什么是DeepSeek?"},
         ],
         max_tokens=1024,
         temperature=0.7,
-        stream=False, # 这里不使用流式（逐步返回生成的文本）
+        stream=False,  # 这里不使用流式（逐步返回生成的文本）
     )
     print(response.choices[0].message.content)
+
+if __name__ == '__main__':
+    main()
