@@ -16,7 +16,7 @@ Python 语言实现的 ReAct模式 Agent
 
 ## 怎么用
 ### 调用大模型api
-1. 定义环境变量 DEEPSEEK_API_KEY 
+1. 定义环境变量 DEEPSEEK_API_KEY  [deepseek官网申请 apikey](https://platform.deepseek.com/api_keys)
 2. 运行 llm_api_call/llm_api_call.py 
 
 ### 运行 compute_agent
@@ -25,7 +25,7 @@ Python 语言实现的 ReAct模式 Agent
 
 
 #### 运行 my_claude_agent
-1. 定义环境变量 DEEPSEEK_API_KEY 
+1. 定义环境变量 DEEPSEEK_API_KEY  [deepseek官网申请 apikey](https://platform.deepseek.com/api_keys)
 2. 运行  claude_agent/my_claude_agent.py
 3. 这里需要先设置代码生成的目录，比如 test
    ![添加运行参数](Python运行参数.png)

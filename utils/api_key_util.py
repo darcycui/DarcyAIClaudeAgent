@@ -12,10 +12,15 @@ def get_api_key_zhipu_glm() -> str:
     return get_api_key_by_name("ZHIPU_API_KEY")
 
 
+def get_api_key_qwen() -> str:
+    """获取千问API Key"""
+    return get_api_key_by_name("QWEN_API_KEY")
+
+
 def get_api_key_by_name(env_name: str) -> str:
-    """获取DeepSeek的API Key"""
+    """获取指定 env_name 的 环境变量"""
     api_key = os.environ.get(env_name)
     if not api_key:
-        print("Error: please set DEEPSEEK_API_KEY environment variable.")
+        print(f"Error: please set {env_name} environment variable.", file=sys.stderr)
         sys.exit(1)
     return api_key

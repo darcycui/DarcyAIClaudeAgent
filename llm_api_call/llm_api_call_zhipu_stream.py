@@ -4,7 +4,7 @@ from utils.api_key_util import get_api_key_zhipu_glm
 
 
 def main():
-    print(f"使用 API key: {get_api_key_zhipu_glm()} 访问 ZhipuAi 模型 api")
+    print(f"使用 API key: {get_api_key_zhipu_glm()} 访问 ZhipuAi glm-4.7-flash模型(免费) api")
     client = ZhipuAiClient(api_key=get_api_key_zhipu_glm())  # 请填写您自己的 API Key
 
     response = client.chat.completions.create(
