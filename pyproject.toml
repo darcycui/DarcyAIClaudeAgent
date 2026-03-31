@@ -6,6 +6,9 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "dashscope>=1.25.15",
+    "langchain>=1.2.13",
+    "langchain-deepseek>=1.0.1",
+    "langchain-mcp-adapters>=0.2.2",
     "openai>=2.30.0",
     "zai-sdk>=0.2.2",
 ]

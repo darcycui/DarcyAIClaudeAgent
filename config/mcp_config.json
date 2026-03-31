@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "weather": {
+      "autoApprove": [],
+      "disabled": false,
+      "timeout": 60,
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "darcycui-mcp"
+      ]
+    }
+  }
+}
