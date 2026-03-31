@@ -1,6 +1,10 @@
 from zai import ZhipuAiClient
 
-from utils.api_key_util import get_api_key_zhipu_glm
+from src.utils.api_key_util import get_api_key_zhipu_glm
+
+"""
+zhipu GLM llm api
+"""
 
 
 def main():

@@ -1,6 +1,10 @@
 from openai import OpenAI
 
-from utils.api_key_util import get_api_key_deepseek
+from src.utils.api_key_util import get_api_key_deepseek
+
+"""
+deepseek llm api
+"""
 
 
 def init_client():
@@ -10,6 +14,7 @@ def init_client():
         api_key=api_key,
         base_url="https://api.deepseek.com",
     )
+
 
 def main():
     print(f"使用 API key: {get_api_key_deepseek()} 访问 DeepSeek 模型 api")
@@ -33,6 +38,7 @@ def main():
         if chunk.choices[0].delta.content is not None:
             print(chunk.choices[0].delta.content, end="", flush=True)
         print()  # 换行
+
 
 if __name__ == '__main__':
     main()

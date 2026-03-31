@@ -1,8 +1,8 @@
 
 ## 是什么
 Python 语言实现的 ReAct模式 Agent
-1. [计算器 Agent](compute_agent/compute_agent.py) 是一个简单的计算器Agent
-2. [Darcy Claude Agent](claude_agent/my_claude_agent.py) 是从0到1仿写的 Claude Agent
+1. [计算器 Agent](src/compute_agent/compute_agent.py) 是一个简单的计算器Agent
+2. [Darcy Claude Agent](src/claude_agent/my_claude_agent.py) 是从0到1仿写的 Claude Agent
 
 ## 有什么能力
 1. llm_api_call、compute_agent、my_claude_agent 都支持 deepseek AI聊天 
@@ -28,7 +28,7 @@ Python 语言实现的 ReAct模式 Agent
 1. 定义环境变量 DEEPSEEK_API_KEY  [deepseek官网申请 apikey](https://platform.deepseek.com/api_keys)
 2. 运行  claude_agent/my_claude_agent.py
 3. 这里需要先设置代码生成的目录，比如 test
-   ![添加运行参数](Python运行参数.png)
+   ![添加运行参数](docs/Python运行参数.png)
 4. 在命令行 输入问题，例如： 写一个贪吃蛇游戏，使用HTML，css和js实现，代码分别放在不同的文件中。
 5. 执行shell命令时 需要输入 y
 6. test 文件夹有一份AI生成的代码：index.html game.js style.css 可以直接运行
@@ -48,7 +48,7 @@ Python 语言实现的 ReAct模式 Agent
 
 3. 流程图
 
-![Agent流程图](Agent流程图.webp)
+![Agent流程图](docs/Agent流程图.webp)
 
 ## 参考文章
 1. [REACT: SYNERGIZING REASONING AND ACTING IN LANGUAGE MODELS](https://arxiv.org/abs/2210.03629)

@@ -10,8 +10,8 @@ from typing import Callable
 
 from openai import OpenAI
 
-from claude_agent.system_prompt import react_system_prompt_template
-from utils.api_key_util import get_api_key_deepseek
+from src.claude_agent.system_prompt import react_system_prompt_template
+from src.utils.api_key_util import get_api_key_deepseek
 
 class ReActAgent:
     def __init__(self, tools: list[Callable], model: str, project_directory: str):

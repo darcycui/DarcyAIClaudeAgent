@@ -4,7 +4,7 @@ import re
 
 from openai import OpenAI
 
-from utils.api_key_util import get_api_key_deepseek
+from src.utils.api_key_util import get_api_key_deepseek
 
 
 def multiply(a, b) -> float:

@@ -5,8 +5,11 @@ from http import HTTPStatus  # 检查与Qwen模型HTTP请求状态
 
 from dashscope.api_entities.dashscope_response import Message
 
-from utils.api_key_util import get_api_key_qwen
+from src.utils.api_key_util import get_api_key_qwen
 
+"""
+Qwen llm api
+"""
 # 设置Qwen系列具体模型及对应的调用API密钥，从阿里云百炼大模型服务平台获得
 model_name = "qwen-turbo"
 model_api_key = get_api_key_qwen()
