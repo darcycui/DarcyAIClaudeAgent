@@ -22,9 +22,17 @@ def main():
         ],
         max_tokens=1024,
         temperature=0.7,
-        stream=False,  # 这里不使用流式（逐步返回生成的文本）
+        # stream=False,  # 不使用流式
+        stream=True,  # 使用流式（逐步返回生成的文本）
     )
-    print(response.choices[0].message.content)
+    # 不使用流式处理，获取完整回复
+    # print(response.choices[0].message.content)
+    # 流式处理响应
+    for chunk in response:
+
+        if chunk.choices[0].delta.content is not None:
+            print(chunk.choices[0].delta.content, end="", flush=True)
+        print()  # 换行
 
 if __name__ == '__main__':
     main()

@@ -17,13 +17,22 @@ def main():
         thinking={
             "type": "false",  # 不启用深度思考模式
         },
-        stream=False,  # 不使用流式（逐步返回生成的文本）
         max_tokens=65536,  # 最大输出 tokens
-        temperature=1.0  # 控制输出的随机性
+        temperature=1.0,  # 控制输出的随机性
+        # stream=False,  # 不使用流式
+        stream=True,  # 使用流式（逐步返回生成的文本）
     )
 
-    # 获取完整回复
-    print(response.choices[0].message)
+    # 不使用流式 获取完整回复
+    # print(response.choices[0].message)
+
+    # 流式获取回复
+    for chunk in response:
+        if chunk.choices[0].delta.reasoning_content:
+            print(chunk.choices[0].delta.reasoning_content, end='', flush=True)
+
+        if chunk.choices[0].delta.content:
+            print(chunk.choices[0].delta.content, end='', flush=True)
 
 
 if __name__ == '__main__':
