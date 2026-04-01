@@ -25,7 +25,7 @@ def load_skill_functions(skill_name: str, script_path: str) -> dict[str, Callabl
 
     Args:
         skill_name: 技能名称
-        script_path: 脚本文件路径
+        script_path: 脚本文件相对路径
 
     Returns:
         字典，键为函数名，值为函数对象
@@ -38,6 +38,7 @@ def load_skill_functions(skill_name: str, script_path: str) -> dict[str, Callabl
 
     try:
         # 确保脚本路径存在
+
         script_path_obj = Path(script_path)
         if not script_path_obj.exists():
             logger.warning(f"技能脚本不存在: {script_path}")

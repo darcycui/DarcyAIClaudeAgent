@@ -21,26 +21,34 @@ async def main():
         model=llm_client,  # 模型
         system_prompt=system_prompt,  # 系统提示
         tools=[math_add] + mcp_tools,  # 工具、MCP
-        middleware=[SkillMiddleware(), before_agent_aop, before_model_aop, after_model_aop],  # 中间拦截器
+        middleware=[SkillMiddleware()],  # 中间拦截器
+        # middleware=[SkillMiddleware(), before_agent_aop, before_model_aop, after_model_aop],  # 中间拦截器
     )
-    # 调用 MCP
+    # 调用 Skill
+    agent_messages = [
+        SystemMessage(content=system_prompt),
+        HumanMessage(content="格式化文本 ' hello  world '"),
+        # AIMessage(content=""),
+    ]
+    # # 调用 MCP
     # agent_messages = [
     #     SystemMessage(content=system_prompt),
     #     HumanMessage(content="北京的天气"),
     #     # AIMessage(content=""),
     # ]
 
-    # 调用 tool
+    # # 调用 tool
     # agent_messages = [
     #     {"role": "user", "content": "计算1+2"},
     #     {"role": "assistant", "content": ""},
     # ]
 
-    # chat
-    agent_messages = [
-        {"role": "user", "content": "格式化文本 ' hello  world '"},
-        {"role": "assistant", "content": ""},
-    ]
+    # # chat
+    # agent_messages = [
+    #     {"role": "system", "content": system_prompt},
+    #     {"role": "user", "content": "你好"},
+    #     {"role": "assistant", "content": ""},
+    # ]
     messages_dict = {"messages": agent_messages}
     response = await agent.ainvoke(messages_dict, print_mode="values")
     print("==============================")

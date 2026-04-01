@@ -54,26 +54,22 @@ class SkillMiddleware(AgentMiddleware):
 
         # 找到第一条系统消息 SystemMessage
         # 在系统消息中添加 skills_prompt
-        system_message_index = None
+        system_message_index = 0
         for i, msg in enumerate(modified_messages):
             if isinstance(msg, SystemMessage):
                 system_message_index = i
                 break
 
+        original_content = ""
         if system_message_index is not None:
             original_content = modified_messages[system_message_index].content
-            modified_messages[system_message_index] = SystemMessage(
-                content=f"{original_content}\n\n## 可用技能列表\n{self.skills_prompt}\n\n## 工具使用说明\n"
-                        f"1. 使用 `load_skill` 工具获取技能的详细指令\n"
-                        f"2. 使用 `execute_skill_function` 工具执行技能脚本中的函数\n"
-                        f"3. 使用 `list_skill_functions` 工具查看技能的所有可用函数"
-            )
         else:
             print("未找到系统消息")
-            modified_messages.insert(0, SystemMessage(
-                content=f"## 可用技能列表\n{self.skills_prompt}\n\n## 提示\n"
-                        f"1. 使用 `load_skill` 工具获取技能的详细指令\n"
-                        f"2. 使用 `execute_skill_function` 工具执行技能脚本中的函数\n"
-                        f"3. 使用 `list_skill_functions` 工具查看技能的所有可用函数"
-            ))
+
+        modified_messages[system_message_index] = SystemMessage(
+            content=f"{original_content}\n\n## 可用技能列表\n{self.skills_prompt}\n\n## 工具使用说明\n"
+                    f"1. 使用 `load_skill` 工具获取技能的详细指令\n"
+                    f"2. 使用 `execute_skill_function` 工具执行技能脚本中的函数\n"
+                    f"3. 使用 `list_skill_functions` 工具查看技能的所有可用函数"
+        )
         return request.override(messages=modified_messages)

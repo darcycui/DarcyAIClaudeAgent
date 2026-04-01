@@ -4,55 +4,10 @@ from venv import logger
 from langchain.tools import tool
 
 from src.langchain.skills.skill import Skill, load_skill_functions
+from src.langchain.skills.skill_parser import load_skills_dynamically
 
-SKILLS: list[Skill] = [
-    {
-        "name": "go_out_tips",
-        "description": "用于提醒出门携带物品清单",
-        "content": """
-        
-        ## 示例
-        必带物品：
-        手机
-        钱包
-        钥匙
-        
-        选带物品：
-        雨伞
-        
-        """,
-        "script_path": "",  # 无脚本
-        "functions": {}
-    },
-    {  # 新增的 my-first-skill
-        "name": "my-first-skill",
-        "description": "通过删除多余空格、修正大小写和纠正标点符号来格式化和清理文本内容",
-        "content": """
-        # 文本格式化器
-        当被要求格式化文本时：
-        1.  使用  脚本scripts/process.py 中的`format_text`工具来处理文本。
-        2.  该工具会执行以下操作：
-            - 删除多余空格（将多个空格替换为单个空格）
-            - 修正大小写（句子首字母大写）
-            - 纠正标点符号（确保以句号、感叹号或问号结束）
-        3.  将工具返回的结果提供给用户。
-
-        ## 示例
-        **用户输入**: "hello   world"
-        **预期结果**: "Hello world."
-
-        **用户输入**: "this is  a    test"
-        **预期结果**: "This is a test."
-
-        ## 指南
-        - 保留有意的格式（如换行、段落）。
-        - 不要更改技术术语或专有名词。
-        - 保持原始语言和语气。
-        """,
-        "script_path": "D:/Projectss/AI/DarcyClaudeAgent/config/skills/my-first-skill/scripts/process.py",  # 指定脚本路径
-        "functions": {}  # 初始为空，在需要时动态加载
-    }
-]
+# 动态解析 Skills
+SKILLS: list[Skill] = load_skills_dynamically()
 
 
 def load_skill_with_script(skill_name, skill):
@@ -94,7 +49,7 @@ def load_skill(skill_name: str) -> str:
 
 # 通用的动态技能工具
 @tool
-def execute_skill_function(skill_name: str, function_name: str,  parameters: dict[str, Any] = None) -> str:
+def execute_skill_function(skill_name: str, function_name: str, parameters: dict[str, Any] = None) -> str:
     """
     动态执行指定技能的函数
     Args:

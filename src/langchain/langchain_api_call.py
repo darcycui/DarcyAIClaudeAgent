@@ -9,7 +9,7 @@ from src.utils.http_client_util import http_client
 llm_client = init_chat_model(
     model="deepseek-chat",
     api_key=get_api_key_deepseek(),
-    # http_client=http_client,
+    http_client=http_client,  # 自定义网络请求客户端 方便打印日志
 )
 
 
