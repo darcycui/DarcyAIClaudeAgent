@@ -12,6 +12,7 @@ def before_model_aop(state: AgentState, runtime: Runtime) -> dict[str, Any] | No
     print(f"before model-->")
     for message in _messages:
         print(message)
+
     if len(_messages) >= 10:
         return {
             "messages": _messages[AIMessage("Conversation limit reached.")],
