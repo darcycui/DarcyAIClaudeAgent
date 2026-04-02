@@ -4,7 +4,7 @@ from pathlib import Path
 from src.langchain.skills.skill import Skill
 
 
-def parse_skill_md(skill_dir: Path) -> dict[str, str | dict[Any, Any]] | None:
+def parse_skill_md(skill_dir: Path) -> dict[str, str | list[Any] | dict[Any, Any]] | None:
     """
     解析 SKILL.md 文件
     Args:
@@ -37,17 +37,17 @@ def parse_skill_md(skill_dir: Path) -> dict[str, str | dict[Any, Any]] | None:
         description = desc_match.group(1).strip()
         # 检查是否有 scripts 子目录
         scripts_dir = skill_dir / "scripts"
-        script_path = ""
-        if scripts_dir.exists():
-            # 检查是否有 process.py
-            process_py = scripts_dir / "process.py"
-            if process_py.exists():
-                script_path = str(process_py.absolute())
+        script_paths = []
+        if scripts_dir.exists() and any(scripts_dir.iterdir()):
+            # 获取 scripts 目录下所有的 .py 文件
+            for py_file in scripts_dir.glob("*.py"):
+                if not py_file.name.startswith('_'):  # 跳过私有文件
+                    script_paths.append(str(py_file.absolute()))
         return {
             "name": name,
             "description": description,
             "content": skill_content,
-            "script_path": script_path,
+            "script_paths": script_paths,
             "functions": {}
         }
     except Exception as e:

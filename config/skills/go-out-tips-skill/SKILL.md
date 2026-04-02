@@ -1,5 +1,5 @@
 ---
-name: go-out-tips
+name: go-out-tips-skill
 description: 用于提醒出门携带物品清单
 ---
 
@@ -11,14 +11,5 @@ description: 用于提醒出门携带物品清单
 钱包
 钥匙
 可选带物品：
-雨伞
-
-## 指南
-- 必带物品：
-手机
-钱包
-钥匙
-
-- 选带物品：
 雨伞
         

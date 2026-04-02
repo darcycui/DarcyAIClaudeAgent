@@ -27,9 +27,15 @@ async def main():
     # 调用 Skill
     agent_messages = [
         SystemMessage(content=system_prompt),
-        HumanMessage(content="格式化文本 ' hello  world '"),
+        HumanMessage(content="翻转文本 ' hello  world '"),
         # AIMessage(content=""),
     ]
+    # # 调用 Skill
+    # agent_messages = [
+    #     SystemMessage(content=system_prompt),
+    #     HumanMessage(content="格式化文本 ' hello  world '"),
+    #     # AIMessage(content=""),
+    # ]
     # # 调用 MCP
     # agent_messages = [
     #     SystemMessage(content=system_prompt),

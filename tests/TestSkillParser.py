@@ -24,8 +24,8 @@ class MyTestCase(unittest.TestCase):
         for skill in skills:
             description = skill["description"]
             # 如果技能有脚本，在描述中添加提示
-            if skill.get("script_path"):
-                description += f" [此技能有可执行脚本: {skill.get('script_path')}]"
+            if skill.get("script_paths"):
+                description += f" [此技能有可执行脚本: {skill.get('script_paths')}]"
             skills_list.append(f"- **{skill['name']}**: {description}")
         skills_prompt = "\n".join(skills_list)
         print(skills_prompt)

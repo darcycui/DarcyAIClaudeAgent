@@ -1,7 +1,7 @@
 import logging
 import unittest
 
-from src.langchain.skills.skill_register import list_skill_functions, execute_skill_function
+from src.langchain.skills.skill_register import execute_skill_script
 
 
 def setUpModule():
@@ -17,23 +17,26 @@ def setUpModule():
 
 class TestSkillScript(unittest.TestCase):
 
-    def test_list_skill_functions_tool(self):
-        result = list_skill_functions.invoke({"skill_name": "my-first-skill"})
-        print(f"result={result}")
-
-    def test_execute_skill_function(self):
-        result = execute_skill_function("my-first-skill", "format_text", text="  hello  world  ")
-        print(f"result={result}")
-
-    def test_execute_skill_function_tool(self):
+    def test_execute_format_text_skill_tool(self):
         result_expected = "Hello world."
-        result = execute_skill_function.invoke({
-            "skill_name": "my-first-skill",
-            "function_name": "format_text",
+        result = execute_skill_script.invoke({
+            "skill_name": "format-text-skill",
+            "script_filename": "format_text.py",
             "parameters": {"text": "  hello  world  "}
         })
         print(f"result={result}")
-        self.assertEqual(result_expected, result, "函数调用失败")
+        self.assertEqual(result_expected, result, "脚本调用失败")
+
+
+    def test_execute_reverse_text_skill_tool(self):
+        result_expected = "dlrow  olleh"
+        result = execute_skill_script.invoke({
+            "skill_name": "reverse-text-skill",
+            "script_filename": "reverse_text.py",
+            "parameters": {"text": "hello  world"}
+        })
+        print(f"result={result}")
+        self.assertEqual(result_expected, result, "脚本调用失败")
 
 
 if __name__ == '__main__':

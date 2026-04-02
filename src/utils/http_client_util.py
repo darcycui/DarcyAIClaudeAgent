@@ -35,7 +35,7 @@ def log_response(response):
     # 读取响应内容
     try:
         response.read()  # 这步很重要！
-        content = response.text
+        content = response.input_text
 
         # 尝试美化JSON输出
         try:
