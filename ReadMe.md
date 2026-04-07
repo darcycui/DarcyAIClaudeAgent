@@ -5,18 +5,35 @@ Python 语言实现的 ReAct模式 Agent
 2. [Darcy Claude Agent](src/claude1/my_claude_agent.py) 是从0到1仿写的 Claude Agent
 
 ## 有什么能力
-1. llm_api_call、compute_agent、my_claude_agent 都支持 deepseek AI聊天 
-2. compute_agent 拓展能力：计算乘法和除法
-3. my_claude_agent 
+1. 支持 deepseek AI聊天 
+2. 支持拓展能力：计算两个数字的和
+3. claude1 agent 第一版
+   >不使用框架，纯手撸的一个ReAct模式Agent.
    1. 拓展能力：
       - 读文件
       - 写文件
       - 执行shell命令
-   2. 基于React模式 + 以上能力，可以完成各种任务，比如：生成贪吃蛇游戏的 web 代码。
+      - 完成各种任务，比如：生成贪吃蛇游戏的 web 代码。
+
+4. claude2 agent 第二版 
+   >使用 [LangChain](https://github.com/hwchase17/langchain)框架搭建的一个ReAct模式Agent
+   
+   拓展能力：
+   - 读文件
+   - 写文件
+   - 执行shell命令
+   - 计算两个数字的和
+   - MCP 调用远程服务
+   - Skills 支持技能
+   - 完成各种任务，比如：生成贪吃蛇游戏的 web 代码。
+
+
+
 
 ## 怎么用
 
-#### 运行 claude1 agent
+#### 运行 claude1 agent 第一版
+
 1. 定义环境变量 DEEPSEEK_API_KEY  [deepseek官网申请 apikey](https://platform.deepseek.com/api_keys)
 2. 运行  src/claude1/my_claude_agent.py
 3. 这里需要先设置代码生成的目录，比如 test
@@ -26,21 +43,24 @@ Python 语言实现的 ReAct模式 Agent
 6. test 文件夹有一份AI生成的代码：index.html game.js style.css 可以直接运行
 
 
-### 运行 claude2 agent
+### 运行 claude2 agent 第二版
+使用 [LangChain](https://github.com/hwchase17/langchain)框架，搭建一个ReAct模式Agent
 1. 运行 src/claude2/langchain_agent.py
 
 
 ## ReAct模式
-1. 借鉴人类的思维模式
-作者有一个重要的洞察：我们人类在处理任务的时候有一个内心小剧场（Inner Speech），用语言的方式（Verbal Reasoning）指导我们已经做了什么（Working Memory），以及下一步要做什么。如果这个模式适用于人类，那么也会同样适用于LLM。
+1. 借鉴人类的思维模式 
+   >一个重要的洞察：
+   - 我们人类在处理任务的时候有一个内心小剧场，用语言的方式指导我们已经做了什么（Working Memory），以及下一步要做什么。
+   - 如果这个模式适用于人类，那么也会同样适用于LLM。
 
 2. React模式
-把ReAct这个思维模式进行结构化，实际上就是Thought（思考） -> Action（行动） -> Observation（观察）三步的循环：
-
-- Thought：模型分析当前情况，思考下一步该做什么，以及为什么要这么做。
-- Action：基于思考，模型决定调用哪个工具，并生成具体的调用指令（如搜索查询）。
-- Observation：工具执行后返回结果（如搜索引擎返回的摘要），模型接收这个结果作为新的信息。
-循环这三个步骤，每一轮，大模型都会结合Thought，Action，及Observation，进行下一轮的规划思考，直到用户任务得到最终解决。从而实现AI Agent（智能代理）。
+   >把ReAct这个思维模式进行结构化，实际上就是
+   > Thought（思考） -> Action（行动） -> Observation（观察）三步的循环：
+   - Thought：模型分析当前情况，思考下一步该做什么，以及为什么要这么做。
+   - Action：基于思考，模型决定调用哪个工具，并生成具体的调用指令（如搜索查询）。
+   - Observation：工具执行后返回结果（如搜索引擎返回的摘要），模型接收这个结果作为新的信息。
+   循环这三个步骤，每一轮，大模型都会结合Thought，Action，及Observation，进行下一轮的规划思考，直到用户任务得到最终解决。从而实现AI Agent（智能代理）。
 
 3. 流程图
 
