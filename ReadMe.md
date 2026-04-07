@@ -12,32 +12,22 @@ Python 语言实现的 ReAct模式 Agent
       - 读文件
       - 写文件
       - 执行shell命令
-   2. 基于React模式 + 以上能力，可以完成各种任务，比如：生成贪吃蛇有戏的 web 代码。
+   2. 基于React模式 + 以上能力，可以完成各种任务，比如：生成贪吃蛇游戏的 web 代码。
 
 ## 怎么用
-### 调用大模型api
+
+#### 运行 claude1 agent
 1. 定义环境变量 DEEPSEEK_API_KEY  [deepseek官网申请 apikey](https://platform.deepseek.com/api_keys)
-2. 运行 src/llm_api_call/llm_api_call.py 
-
-### 运行 compute_agent
-1. 定义环境变量 DEEPSEEK_API_KEY 
-2. 运行 compute_agent/compute_agent.py 
-
-
-#### 运行 my_claude_agent
-1. 定义环境变量 DEEPSEEK_API_KEY  [deepseek官网申请 apikey](https://platform.deepseek.com/api_keys)
-2. 运行  src/claude_agent/my_claude_agent.py
+2. 运行  src/claude1/my_claude_agent.py
 3. 这里需要先设置代码生成的目录，比如 test
    ![添加运行参数](docs/Python运行参数.png)
 4. 在命令行 输入问题，例如： 写一个贪吃蛇游戏，使用HTML，css和js实现，代码分别放在不同的文件中。
 5. 执行shell命令时 需要输入 y
 6. test 文件夹有一份AI生成的代码：index.html game.js style.css 可以直接运行
 
-### 运行 langchain_api_call
-1. 运行 src/langchain/langchain_api_call.py
 
-### 运行 langchain_agent
-1. 运行 src/langchain/langchain_agent.py
+### 运行 claude2 agent
+1. 运行 src/claude2/langchain_agent.py
 
 
 ## ReAct模式
