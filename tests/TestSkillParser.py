@@ -1,8 +1,8 @@
 import logging
 import unittest
 
-from src.langchain.skills.skill import Skill
-from src.langchain.skills.skill_parser import load_skills_dynamically
+from src.claude2.skills.skill import Skill
+from src.claude2.skills.skill_parser import load_skills_dynamically
 
 
 class MyTestCase(unittest.TestCase):

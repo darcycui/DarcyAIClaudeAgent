@@ -1,7 +1,7 @@
 from typing import TypedDict, List, Any, Optional, Callable
 import re
 from pathlib import Path
-from src.langchain.skills.skill import Skill
+from src.claude2.skills.skill import Skill
 
 
 def parse_skill_md(skill_dir: Path) -> dict[str, str | list[Any] | dict[Any, Any]] | None:

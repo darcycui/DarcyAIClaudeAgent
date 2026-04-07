@@ -10,7 +10,7 @@ from typing import Callable
 
 from openai import OpenAI
 
-from src.claude_agent.system_prompt import react_system_prompt_template
+from src.claude1.system_prompt import react_system_prompt_template
 from src.utils.api_key_util import get_api_key_deepseek
 
 class ReActAgent:

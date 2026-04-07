@@ -2,7 +2,7 @@ from dashscope import api_key
 from langchain.chat_models import init_chat_model
 from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
 
-from src.langchain.prompt.system_prompt import system_prompt
+from src.claude2.prompt.system_prompt import system_prompt
 from src.utils.api_key_util import get_api_key_deepseek
 from src.utils.http_client_util import http_client
 

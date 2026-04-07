@@ -1,7 +1,7 @@
 import logging
 import unittest
 
-from src.langchain.skills.skill_register import execute_skill_script
+from src.claude2.skills.skill_register import execute_skill_script
 
 
 def setUpModule():
