@@ -6,8 +6,8 @@ from venv import logger
 
 from langchain.tools import tool
 
-from src.langchain.skills.skill import Skill
-from src.langchain.skills.skill_parser import load_skills_dynamically
+from src.claude2.skills.skill import Skill
+from src.claude2.skills.skill_parser import load_skills_dynamically
 
 # 动态解析 Skills
 SKILLS: list[Skill] = load_skills_dynamically()

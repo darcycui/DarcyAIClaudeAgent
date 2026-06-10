@@ -2,8 +2,8 @@ import os
 
 import click
 
-from src.claude_agent.react_agent import ReActAgent
-from src.claude_agent.tools import read_file, write_to_file, run_terminal_command
+from src.claude1.react_agent import ReActAgent
+from src.claude1.tools import read_file, write_to_file, run_terminal_command
 
 
 @click.command()

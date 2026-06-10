@@ -26,14 +26,9 @@ def call_llm_api(query, chunks):
     llm_model = model_name
     dashscope.api_key = model_api_key
 
-    # 构建参考文档内容 格式为：[参考文档1] \n [参考文档2] \n ...
-    context = ""
-    for i, chunk in enumerate(chunks):
-        context += f"[参考文档{i + 1}] \n {chunk} \n\n"
-
-    # 构建生成模型所需的Prompt，包含用户查询和检索到的相关文本块
-    prompt = f"根据参考文档回答问题：{query}\n\n{context}"
-    print(f"生成模型的Prompt: {prompt}")
+    # 构建用户提示词
+    prompt = f"{query}"
+    print(f"Prompt: {prompt}")
 
     # 准备请求消息，将prompt作为输入
     messages = [Message(role="user", content=prompt)]
@@ -69,5 +64,5 @@ def call_llm_api(query, chunks):
 
 
 if __name__ == '__main__':
-    query_word = "下面报告中涉及了哪几个行业的案例以及总结各自面临的挑战？"
+    query_word = "你好"
     call_llm_api(query_word, [])

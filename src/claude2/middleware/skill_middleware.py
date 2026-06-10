@@ -4,7 +4,7 @@ from langchain.agents.middleware import ModelRequest, ModelResponse, AgentMiddle
 from langchain.messages import SystemMessage
 from typing import Callable
 
-from src.langchain.skills.skill_register import SKILLS, get_all_skill_tools
+from src.claude2.skills.skill_register import SKILLS, get_all_skill_tools
 
 """
 拦截器：添加 Skills
